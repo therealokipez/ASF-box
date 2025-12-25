@@ -1,40 +1,61 @@
-import React, { useState } from 'react';
-import { Gift, Sparkles } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASF SACOETEC Wish Box</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">
+                <span class="sparkle">✨</span>
+                ASF SACOETEC
+                <span class="sparkle">✨</span>
+            </h1>
+            <p class="subtitle">Anglican Student Fellowship</p>
+            <p class="tagline">Wish Box - Pick Once Only!</p>
+        </div>
 
-const wishes = [
-  "May your faith grow stronger every day! 🙏",
-  "Wishing you academic excellence and divine wisdom! 📚",
-  "May God's grace overflow in your life! ✨",
-  "Success in all your endeavors this semester! 🎯",
-  "May you find joy in fellowship and friendship! 🤝",
-  "Divine favor in your studies and exams! 📝",
-  "May you be a light to others on campus! 💡",
-  "Breakthrough in every area of your life! 🚀",
-  "May your prayers be answered speedily! 🙌",
-  "Academic success with divine understanding! 🎓",
-  "May you experience God's love daily! ❤️",
-  "Wisdom and knowledge in abundance! 🧠",
-  "May you walk in divine health always! 💪",
-  "Supernatural provision for all your needs! 💰",
-  "May your testimony inspire others! 🌟",
-  "Excellence in character and academics! 👑",
-  "May you fulfill your God-given purpose! 🎯",
-  "Divine connections and mentorship! 🤲",
-  "May peace reign in your heart always! ☮️",
-  "Breakthrough beyond your expectations! 🌈",
-  "May you grow in grace and knowledge! 📖",
-  "Academic distinction with ease! 🏆",
-  "May God's presence guide you daily! 🕊️",
-  "Favor with lecturers and colleagues! 🎓",
-  "May you be blessed and be a blessing! 🌺",
-  "Divine speed in your academic journey! ⚡",
-  "May joy unspeakable fill your life! 😊",
-  "Success in all your projects! 📊",
-  "May you shine for Christ on campus! ⭐",
-  "Uncommon grace for uncommon success! 🌟",
-  "May your faith move mountains! ⛰️",
-  "Excellence without stress! 🎯",
-  "May God's love surround you always! 💖",
+        <div class="wish-card">
+            <div id="pickSection" class="pick-section">
+                <div class="gift-icon">🎁</div>
+                <button id="pickBtn" class="pick-button">
+                    Pick Your Wish! 🎁
+                </button>
+                <p class="hint">Click to receive your blessing</p>
+            </div>
+
+            <div id="resultSection" class="result-section hidden">
+                <div class="code-display">
+                    <div class="code-part" id="codePart1"></div>
+                    <span class="code-dash">-</span>
+                    <div class="code-part" id="codePart2"></div>
+                </div>
+                <p class="code-label">Your Unique Code</p>
+                
+                <div class="wish-display">
+                    <p id="wishText" class="wish-text"></p>
+                </div>
+                
+                <div class="blessing-message">
+                    <span class="sparkle-small">✨</span>
+                    <p>Your blessing has been claimed!</p>
+                    <span class="sparkle-small">✨</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Courtesy: FYB Chairman</p>
+            <p class="blessing">God bless you! 🙏</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>  "May God's love surround you always! 💖",
   "Divine ideas and creativity! 💡",
   "May you excel beyond your peers! 🚀",
   "Peace that passes understanding! 🕊️",
