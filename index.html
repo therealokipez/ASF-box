@@ -3,233 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASF SACOETEC Wish Box</title>
+    <meta name="description" content="ASF SACOETEC Wish Box - Anglican Student Fellowship">
+    <title>ASF SACOETEC - Wish Box</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1 class="title">
-                <span class="sparkle">✨</span>
-                ASF SACOETEC
-                <span class="sparkle">✨</span>
+    <main class="main-container">
+        <!-- Header Section -->
+        <header class="header-section">
+            <h1 class="main-title">
+                <span class="icon-sparkle">✨</span>
+                <span>ASF SACOETEC</span>
+                <span class="icon-sparkle">✨</span>
             </h1>
-            <p class="subtitle">Anglican Student Fellowship</p>
-            <p class="tagline">Wish Box - Pick Once Only!</p>
-        </div>
+            <p class="fellowship-name">Anglican Student Fellowship</p>
+            <p class="wish-instructions">Wish Box - Pick Once Only!</p>
+        </header>
 
-        <div class="wish-card">
-            <div id="pickSection" class="pick-section">
-                <div class="gift-icon">🎁</div>
-                <button id="pickBtn" class="pick-button">
+        <!-- Wish Box Card -->
+        <section class="wish-box-card">
+            <!-- Before Pick: Gift Icon and Button -->
+            <div id="beforePick" class="before-pick-container">
+                <div class="gift-animation">🎁</div>
+                <button id="btnPickWish" class="btn-pick-wish" aria-label="Pick your wish">
                     Pick Your Wish! 🎁
                 </button>
-                <p class="hint">Click to receive your blessing</p>
+                <p class="pick-hint">Click to receive your blessing</p>
             </div>
 
-            <div id="resultSection" class="result-section hidden">
-                <div class="code-display">
-                    <div class="code-part" id="codePart1"></div>
-                    <span class="code-dash">-</span>
-                    <div class="code-part" id="codePart2"></div>
+            <!-- After Pick: Code and Wish Display -->
+            <div id="afterPick" class="after-pick-container hidden">
+                <!-- Split Code Display -->
+                <div class="code-container">
+                    <div class="code-box" id="codeLeft"></div>
+                    <span class="code-separator">-</span>
+                    <div class="code-box" id="codeRight"></div>
                 </div>
-                <p class="code-label">Your Unique Code</p>
+                <p class="code-description">Your Unique Code</p>
                 
-                <div class="wish-display">
-                    <p id="wishText" class="wish-text"></p>
+                <!-- Wish Message -->
+                <div class="wish-message-box">
+                    <p id="wishMessage" class="wish-message-text"></p>
                 </div>
                 
-                <div class="blessing-message">
-                    <span class="sparkle-small">✨</span>
-                    <p>Your blessing has been claimed!</p>
-                    <span class="sparkle-small">✨</span>
+                <!-- Success Indicator -->
+                <div class="success-indicator">
+                    <span class="icon-star">✨</span>
+                    <p class="success-text">Your blessing has been claimed!</p>
+                    <span class="icon-star">✨</span>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="footer">
-            <p>Courtesy: FYB Chairman</p>
-            <p class="blessing">God bless you! 🙏</p>
-        </div>
-    </div>
+        <!-- Footer Section -->
+        <footer class="footer-section">
+            <p class="courtesy-text">Courtesy: FYB Chairman</p>
+            <p class="blessing-text">God bless you! 🙏</p>
+        </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
-</html>                
-                <div class="wish-display">
-                    <p id="wishText" class="wish-text"></p>
-                </div>
-                
-                <div class="blessing-message">
-                    <span class="sparkle-small">✨</span>
-                    <p>Your blessing has been claimed!</p>
-                    <span class="sparkle-small">✨</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>Courtesy: FYB Chairman</p>
-            <p class="blessing">God bless you! 🙏</p>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>  "May God's love surround you always! 💖",
-  "Divine ideas and creativity! 💡",
-  "May you excel beyond your peers! 🚀",
-  "Peace that passes understanding! 🕊️",
-  "May your light shine brighter! 🔆",
-  "Academic triumph and celebration! 🎉",
-  "May you walk in divine favor! 👣",
-  "Supernatural wisdom for decisions! 🧭",
-  "May your joy be full always! 😄",
-  "Excellence in all your courses! 📚",
-  "May God surprise you this semester! 🎁",
-  "Divine protection over your life! 🛡️",
-  "May you experience miracles daily! ✨",
-  "Academic success beyond measure! 📈",
-  "May your fellowship experience be amazing! 🙌",
-  "Breakthrough in your prayer life! 🙏",
-  "May you be established in faith! 🏛️",
-  "Divine acceleration in your goals! 🏃",
-  "May blessings locate you easily! 🎯",
-  "Excellence with divine backing! 💪",
-  "May you grow closer to God! 💕",
-  "Academic achievements that inspire! 🌟",
-  "May your dreams come to pass! 🌙",
-  "Divine upliftment and promotion! ⬆️",
-  "May you experience God's goodness! 🌻",
-  "Success in every examination! ✅",
-  "May angels watch over you! 👼",
-  "Divine speed in your academics! 🎓",
-  "May your faith inspire nations! 🌍",
-  "Academic progress without setbacks! 🚀",
-  "May you be blessed abundantly! 💰",
-  "Divine wisdom for every challenge! 🧩",
-  "May your semester be stress-free! 😌",
-  "Excellence in your character! 💎",
-  "May God perfect all that concerns you! 🙌",
-  "Academic distinction and honor! 🏅",
-  "May your joy overflow always! 🎊",
-  "Divine grace for every challenge! ⚡",
-  "May you be fruitful and productive! 🌳",
-  "Success beyond your wildest dreams! 🌠",
-  "May God's word guide your steps! 📖",
-  "Academic excellence with ease! 🎯",
-  "May you be a blessing to ASF! 🌟",
-  "Divine strength for every task! 💪",
-  "May your faith never fail! ⚓",
-  "Academic breakthrough this semester! 🎓",
-  "May you walk in supernatural favor! ✨",
-  "Excellence in all your ways! 👑",
-  "May God's peace rule your heart! 💙",
-  "Academic success and celebration! 🎉",
-  "May you prosper in all things! 💫",
-  "Divine grace upon grace! 🌈",
-  "May your testimony be great! 📣",
-  "Academic achievement with joy! 😊",
-  "May you be celebrated for good! 🏆",
-  "Divine wisdom beyond your years! 🦉",
-  "May your faith move you forward! 🚶",
-  "Academic excellence and distinction! 🌟",
-  "May God's love overwhelm you! ❤️",
-  "Divine favor in all areas! 🎯",
-  "May you excel beyond measure! 📊",
-  "Academic success and fulfillment! 🎓",
-  "May you be a light on campus! 💡",
-  "Divine breakthrough and victory! 🏁",
-  "May your semester be glorious! ✨",
-  "Academic excellence and honor! 🌟",
-  "May God's blessings chase you down! 🎁"
-];
-
-export default function WishBox() {
-  const [picked, setPicked] = useState(false);
-  const [wish, setWish] = useState('');
-  const [code, setCode] = useState('');
-  const [usedCodes, setUsedCodes] = useState(new Set());
-
-  const generateCode = () => {
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const numbers = '0123456789';
-    const part1 = Array.from({length: 3}, () => letters[Math.floor(Math.random() * letters.length)]).join('');
-    const part2 = Array.from({length: 3}, () => numbers[Math.floor(Math.random() * numbers.length)]).join('');
-    return `${part1}-${part2}`;
-  };
-
-  const pickWish = () => {
-    if (picked) return;
-    
-    let newCode;
-    do {
-      newCode = generateCode();
-    } while (usedCodes.has(newCode));
-    
-    const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
-    setWish(randomWish);
-    setCode(newCode);
-    setUsedCodes(prev => new Set([...prev, newCode]));
-    setPicked(true);
-  };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center p-4">
-      <div className="max-w-md w-full">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-yellow-300 mb-2 flex items-center justify-center gap-2">
-            <Sparkles className="w-8 h-8" />
-            ASF SACOETEC
-            <Sparkles className="w-8 h-8" />
-          </h1>
-          <p className="text-white text-lg">Anglican Student Fellowship</p>
-          <p className="text-yellow-200 text-sm mt-2">Wish Box - Pick Once Only!</p>
-        </div>
-
-        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border-4 border-yellow-400">
-          {!picked ? (
-            <div className="text-center">
-              <div className="mb-6">
-                <Gift className="w-32 h-32 mx-auto text-yellow-300 animate-bounce" />
-              </div>
-              <button
-                onClick={pickWish}
-                className="bg-yellow-400 hover:bg-yellow-500 text-purple-900 font-bold text-xl px-12 py-4 rounded-full shadow-lg transform transition hover:scale-105 active:scale-95"
-              >
-                Pick Your Wish! 🎁
-              </button>
-              <p className="text-white/80 text-sm mt-4">Click to receive your blessing</p>
-            </div>
-          ) : (
-            <div className="text-center space-y-6">
-              <div className="flex items-center justify-center gap-3">
-                <div className="bg-yellow-300 text-purple-900 font-bold text-2xl px-6 py-3 rounded-lg shadow-lg">
-                  {code.split('-')[0]}
-                </div>
-                <span className="text-yellow-300 text-3xl font-bold">-</span>
-                <div className="bg-yellow-300 text-purple-900 font-bold text-2xl px-6 py-3 rounded-lg shadow-lg">
-                  {code.split('-')[1]}
-                </div>
-              </div>
-              <p className="text-yellow-200 text-sm">Your Unique Code</p>
-              <div className="bg-white/20 rounded-2xl p-6 border-2 border-yellow-300">
-                <p className="text-white text-xl leading-relaxed">{wish}</p>
-              </div>
-              <div className="flex items-center justify-center gap-2 text-yellow-300">
-                <Sparkles className="w-5 h-5" />
-                <p className="text-sm">Your blessing has been claimed!</p>
-                <Sparkles className="w-5 h-5" />
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className="text-center mt-6 text-white/70 text-sm">
-          <p>Courtesy: FYB Chairman</p>
-          <p className="mt-2">God bless you! 🙏</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+</html>
