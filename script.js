@@ -1,5 +1,13 @@
-// All 100 wishes
-const wishes = [
+/**
+ * ASF SACOETEC Wish Box
+ * Anglican Student Fellowship
+ * Courtesy: FYB Chairman
+ */
+
+// ==========================================
+// WISH DATABASE (100 Wishes)
+// ==========================================
+const WISHES_DATABASE = [
     "May your faith grow stronger every day! 🙏",
     "Wishing you academic excellence and divine wisdom! 📚",
     "May God's grace overflow in your life! ✨",
@@ -101,56 +109,174 @@ const wishes = [
     "May God's blessings chase you down! 🎁"
 ];
 
-// State management
-let picked = false;
-let usedCodes = new Set();
+// ==========================================
+// STATE MANAGEMENT
+// ==========================================
+const appState = {
+    hasPickedWish: false,
+    usedCodesList: new Set()
+};
 
-// Generate random code
-function generateCode() {
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const numbers = '0123456789';
+// ==========================================
+// DOM ELEMENTS
+// ==========================================
+const elements = {
+    beforePickSection: document.getElementById('beforePick'),
+    afterPickSection: document.getElementById('afterPick'),
+    pickButton: document.getElementById('btnPickWish'),
+    codeLeftBox: document.getElementById('codeLeft'),
+    codeRightBox: document.getElementById('codeRight'),
+    wishMessageText: document.getElementById('wishMessage')
+};
+
+// ==========================================
+// CODE GENERATOR
+// ==========================================
+const CodeGenerator = {
+    LETTERS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    NUMBERS: '0123456789',
     
-    let part1 = '';
-    for (let i = 0; i < 3; i++) {
-        part1 += letters[Math.floor(Math.random() * letters.length)];
+    /**
+     * Generate random string from character set
+     * @param {string} chars - Character set to use
+     * @param {number} length - Length of string to generate
+     * @returns {string} Generated string
+     */
+    generateRandomString(chars, length) {
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * chars.length);
+            result += chars[randomIndex];
+        }
+        return result;
+    },
+    
+    /**
+     * Generate unique code in format ABC-123
+     * @returns {Object} Object containing leftPart, rightPart, and fullCode
+     */
+    generateUniqueCode() {
+        let leftPart, rightPart, fullCode;
+        
+        // Keep generating until we get a unique code
+        do {
+            leftPart = this.generateRandomString(this.LETTERS, 3);
+            rightPart = this.generateRandomString(this.NUMBERS, 3);
+            fullCode = `${leftPart}-${rightPart}`;
+        } while (appState.usedCodesList.has(fullCode));
+        
+        // Mark this code as used
+        appState.usedCodesList.add(fullCode);
+        
+        return { leftPart, rightPart, fullCode };
     }
-    
-    let part2 = '';
-    for (let i = 0; i < 3; i++) {
-        part2 += numbers[Math.floor(Math.random() * numbers.length)];
+};
+
+// ==========================================
+// WISH SELECTOR
+// ==========================================
+const WishSelector = {
+    /**
+     * Get random wish from database
+     * @returns {string} Random wish message
+     */
+    getRandomWish() {
+        const randomIndex = Math.floor(Math.random() * WISHES_DATABASE.length);
+        return WISHES_DATABASE[randomIndex];
     }
-    
-    return { part1, part2, full: `${part1}-${part2}` };
-}
+};
 
-// Pick a wish
-function pickWish() {
-    if (picked) return;
+// ==========================================
+// UI CONTROLLER
+// ==========================================
+const UIController = {
+    /**
+     * Hide before-pick section and show after-pick section
+     */
+    switchToResultView() {
+        elements.beforePickSection.classList.add('hidden');
+        elements.afterPickSection.classList.remove('hidden');
+    },
     
-    // Generate unique code
-    let code;
-    do {
-        code = generateCode();
-    } while (usedCodes.has(code.full));
+    /**
+     * Display the generated code
+     * @param {Object} code - Code object with leftPart and rightPart
+     */
+    displayCode(code) {
+        elements.codeLeftBox.textContent = code.leftPart;
+        elements.codeRightBox.textContent = code.rightPart;
+    },
     
-    usedCodes.add(code.full);
+    /**
+     * Display the wish message
+     * @param {string} wish - Wish message to display
+     */
+    displayWish(wish) {
+        elements.wishMessageText.textContent = wish;
+    },
     
-    // Get random wish
-    const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
-    
-    // Update UI
-    document.getElementById('codePart1').textContent = code.part1;
-    document.getElementById('codePart2').textContent = code.part2;
-    document.getElementById('wishText').textContent = randomWish;
-    
-    // Hide pick section, show result
-    document.getElementById('pickSection').classList.add('hidden');
-    document.getElementById('resultSection').classList.remove('hidden');
-    
-    // Disable picking again
-    picked = true;
-    document.getElementById('pickBtn').disabled = true;
-}
+    /**
+     * Disable the pick button
+     */
+    disablePickButton() {
+        elements.pickButton.disabled = true;
+        elements.pickButton.style.cursor = 'not-allowed';
+    }
+};
 
-// Event listener
-document.getElementById('pickBtn').addEventListener('click', pickWish);
+// ==========================================
+// MAIN CONTROLLER
+// ==========================================
+const WishBoxController = {
+    /**
+     * Initialize the wish box application
+     */
+    init() {
+        this.attachEventListeners();
+        console.log('ASF SACOETEC Wish Box initialized successfully! 🎁');
+    },
+    
+    /**
+     * Attach event listeners
+     */
+    attachEventListeners() {
+        elements.pickButton.addEventListener('click', () => this.handlePickWish());
+    },
+    
+    /**
+     * Handle wish picking process
+     */
+    handlePickWish() {
+        // Prevent multiple picks
+        if (appState.hasPickedWish) {
+            console.log('Wish already picked!');
+            return;
+        }
+        
+        // Generate unique code
+        const generatedCode = CodeGenerator.generateUniqueCode();
+        console.log('Generated Code:', generatedCode.fullCode);
+        
+        // Select random wish
+        const selectedWish = WishSelector.getRandomWish();
+        console.log('Selected Wish:', selectedWish);
+        
+        // Update UI
+        UIController.displayCode(generatedCode);
+        UIController.displayWish(selectedWish);
+        UIController.switchToResultView();
+        UIController.disablePickButton();
+        
+        // Update state
+        appState.hasPickedWish = true;
+        
+        console.log('Blessing claimed successfully! ✨');
+    }
+};
+
+// ==========================================
+// APPLICATION ENTRY POINT
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    WishBoxController.init();
+});
